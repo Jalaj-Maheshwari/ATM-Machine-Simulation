@@ -6,8 +6,7 @@ import java.sql.*;
 import java.util.*;
 
 public class AccountChoice extends JFrame implements ActionListener   
-{
-    
+{    
    JFrame frame;
    JLabel lbl_option,lbl_img,lbl_name; 
    JPanel panel;
@@ -20,9 +19,7 @@ public class AccountChoice extends JFrame implements ActionListener
    public static String acno1;
    public static String str_name; 
    public static int type;
-     
-
- ResultSet rs;
+   ResultSet rs;
 
 public AccountChoice(String str)
 {
@@ -58,9 +55,8 @@ btn_savings.addActionListener(this);
 panel.add(btn_savings);
 //panel.setBackground(Color.orange);
 
-
 ImageIcon ig=new ImageIcon("atmimage.png");
-  lbl_img=new JLabel(ig);
+lbl_img=new JLabel(ig);
 lbl_img.setSize(500,100);
 lbl_img.setLocation(50,25); 
 panel.add(lbl_img);       
@@ -76,23 +72,20 @@ panel.add(lbl_img);
           ps.setString(1,val);   // set input parameter
           rs = ps.executeQuery();      
           
-     while(rs.next())
-           {                    
+          while(rs.next()){                    
                 str_name=rs.getString("name");
-           }
+          }
                             
         lbl_name = new JLabel("HELLO  "+str_name);
-            rs=null;
-String query1 = "select name from savingsCustomers  where pin=?";
+        rs=null;
+        String query1 = "select name from savingsCustomers  where pin=?";
 
-          ps = con.prepareStatement(query1); // create a statement
-          ps.setString(1,val);   // set input parameter
-          rs = ps.executeQuery();      
-     while(rs.next())
-           {                    
+        ps = con.prepareStatement(query1); // create a statement
+        ps.setString(1,val);   // set input parameter
+        rs = ps.executeQuery();      
+        while(rs.next()){                    
                 str_name=rs.getString("name");
-           }
-                            
+        }
         lbl_name = new JLabel("HELLO  "+str_name);
         lbl_name.setSize(400,50);
         lbl_name.setLocation(140,150);
@@ -104,18 +97,13 @@ String query1 = "select name from savingsCustomers  where pin=?";
   catch(Exception e)
      {}
 
-
-
-
-
-co.add(panel);
-frame.add(co);
-frame.setVisible(true);
+  co.add(panel);
+  frame.add(co);
+  frame.setVisible(true);
 
 }
-    public void actionPerformed(ActionEvent e)
+public void actionPerformed(ActionEvent e)
 {  
-
         st=null;
         con = null; rs = null;  ps = null;                
         
@@ -137,32 +125,25 @@ frame.setVisible(true);
       String dep=null;
       int count=0;
       
-          if(e.getSource()==btn_savings )
-  {
-          try{ 
-Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-con = DriverManager.getConnection("Jdbc:Odbc:atmdb");
- ps = con.prepareStatement("select * from savingsCustomers where pin = ?");
- ps.setString(1,val); 
- rs = ps.executeQuery(); 
+  if(e.getSource()==btn_savings ){
+    try{ 
+    Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+    con = DriverManager.getConnection("Jdbc:Odbc:atmdb");
+    ps = con.prepareStatement("select * from savingsCustomers where pin = ?");
+    ps.setString(1,val); 
+    rs = ps.executeQuery(); 
 
-if(!rs.next())
-{ 
-  JOptionPane.showMessageDialog(frame, "You Do Not Possess a Savings Acoount");
-}
-else
-{
-frame.setVisible(false);
-Transaction t=new Transaction(val,1);
-}
-}
-catch(Exception ex)
-{
- }
-          }//end of 1st if of action event decider
-
-
-
+    if(!rs.next()){ 
+        JOptionPane.showMessageDialog(frame, "You Do Not Possess a Savings Acoount");
+    }   
+    else{
+    frame.setVisible(false);
+    Transaction t=new Transaction(val,1);
+    }
+    }
+    catch(Exception ex){}
+  }//end of 1st if of action event decider
+  
          if(e.getSource()==btn_current )
   {
    
