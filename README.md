@@ -3,5 +3,4 @@
 
 Java Swing Application 
 
-A Java based mini-application which simulates the working of an ATM Machine. The project saw the use
-of Java Swing Functionality.
+A Java based mini-application which simulates the working of an ATM Machine. The project was built using Java Swing Framework and mysql.
