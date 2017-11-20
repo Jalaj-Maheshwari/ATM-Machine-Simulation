@@ -5,8 +5,7 @@ import javax.swing.JOptionPane;
 import java.sql.*;
 import java.util.*;
 
-public class AccountChoice extends JFrame implements ActionListener   
-{    
+public class AccountChoice extends JFrame implements ActionListener {    
    JFrame frame;
    JLabel lbl_option,lbl_img,lbl_name; 
    JPanel panel;
@@ -21,38 +20,37 @@ public class AccountChoice extends JFrame implements ActionListener
    public static int type;
    ResultSet rs;
 
-public AccountChoice(String str)
-{
+public AccountChoice(String str){
           
-val=str;
+   val=str;
 
-frame=new JFrame();
-frame.setSize(600,600);
-frame.setTitle(" ACCOUNT CHOICE ");
+   frame=new JFrame();
+   frame.setSize(600,600);
+   frame.setTitle(" ACCOUNT CHOICE ");
 
-co= getContentPane();
-JPanel panel=new JPanel();
+   co= getContentPane();
+   JPanel panel=new JPanel();
 
-panel.setLayout(null);
-lbl_option=new JLabel("PLEASE  SELECT  AN  ACCOUNT  FOR  TRANSACTION");
-lbl_option.setFont(new Font("Perpetua",Font.BOLD,22));
-lbl_option.setSize(550,100);
-lbl_option.setLocation(40,200);
-panel.add(lbl_option);
+   panel.setLayout(null);
+   lbl_option=new JLabel("PLEASE  SELECT  AN  ACCOUNT  FOR  TRANSACTION");
+   lbl_option.setFont(new Font("Perpetua",Font.BOLD,22));
+   lbl_option.setSize(550,100);
+   lbl_option.setLocation(40,200);
+   panel.add(lbl_option);
 
-btn_current=new JButton("Current Account");
-btn_current.setFont(new Font("Perpetua",Font.BOLD,18));
-btn_current.setSize(200,50);
-btn_current.setLocation(70,300);
-btn_current.addActionListener(this);
-panel.add(btn_current);
+   btn_current=new JButton("Current Account");
+   btn_current.setFont(new Font("Perpetua",Font.BOLD,18));
+   btn_current.setSize(200,50);
+   btn_current.setLocation(70,300);
+   btn_current.addActionListener(this);
+   panel.add(btn_current);
 
-btn_savings=new JButton("Savings Account");
-btn_savings.setFont(new Font("Perpetua",Font.BOLD,18));
-btn_savings.setSize(200,50);
-btn_savings.setLocation(320,300);
-btn_savings.addActionListener(this);
-panel.add(btn_savings);
+   btn_savings=new JButton("Savings Account");
+   btn_savings.setFont(new Font("Perpetua",Font.BOLD,18));
+   btn_savings.setSize(200,50);
+   btn_savings.setLocation(320,300);
+   btn_savings.addActionListener(this);
+   panel.add(btn_savings);
 //panel.setBackground(Color.orange);
 
 ImageIcon ig=new ImageIcon("atmimage.png");
